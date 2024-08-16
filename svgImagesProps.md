@@ -31,7 +31,7 @@ class SvgImageProps{
     MutationObserverのオブジェクトを作る際に、関数内で削除されている
     めちゃでかメソッド`parseSvg`でいじられている
     `PathRenderer.setSVGpolyPoints`メソッド内で`PathNode`キーに対して何かが挿入されている（ただ、pathNodeがなんなのかはわかっていないし、webアプリ上ではこのキーは存在していない）
-    canvas2dのPathオブジェクトを用いたキャッシュ機構　ビューポート含めDOMに変化がない状態で再描画が指示された場合このキャッシュを使う。それ以外では全て破棄
+    canvas2dのPath2Dオブジェクトを用いたキャッシュ機構　ビューポート含めDOMに変化がない状態で再描画が指示された場合このキャッシュを使う。それ以外では全て破棄
     domMutationObserver（MutationObserverクラスのオブジェクトで、mutationObsという変数を経由して代入されている） :{
         
     }
