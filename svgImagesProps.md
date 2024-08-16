@@ -18,12 +18,24 @@ class SvgImageProps{
     styleMap:{
 
     }
-    altdMap :{
-
+    altdMap（WeakMapオブジェクトとして作成されている） :{
+        [Entries]:
+        [Prototype]: Weakmap{
+            constructor: f Weakmap()
+            delete:
+            get:
+            set:
+            has:
+        }
     }
-    domMutationObserver:{
+    MutationObserverのオブジェクトを作る際に、関数内で削除されている
+    めちゃでかメソッド`parseSvg`でいじられている
+    `PathRenderer.setSVGpolyPoints`メソッド内で`PathNode`キーに対して何かが挿入されている（ただ、pathNodeがなんなのかはわかっていないし、webアプリ上ではこのキーは存在していない）
+    domMutationObserver（MutationObserverクラスのオブジェクトで、mutationObsという変数を経由して代入されている） :{
         
     }
+    SVGdocumentの要素（おそらくthis.#svgImages[docId].documentElement）とその子孫要素全体を監視
+    属性変更の場合に`styleMap`,`altdMap`の2種類のキャッシュを削除
     metaSchema: layerにおける各スポットの情報ハッシュのキーをcsv形式で表している
     isSVG2: boolean（SVG2.0形式での記載かどうかを入れている）主に使われている関数は`LayerManager.getLayer`,`SvgMap.parseSvg`（`svgImages["root"].getElementsByTagName()`で`"iframe"`か`"animation"を参照するかの区別を設けるために使われていそう`）
     parentDocId: 親layerId
