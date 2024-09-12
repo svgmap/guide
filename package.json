@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
+    "report": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage"
+  },
+  "type": "module",
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "jsdom"
+  }
+}
