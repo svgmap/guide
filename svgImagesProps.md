@@ -13,7 +13,8 @@ class SvgImageProps{
     scale: 
     childImages:
     rootLayer:
-    geoViewBox
+    geoViewBox:
+    controller:
 }
 ```
 
@@ -31,9 +32,19 @@ class SvgImageProps{
 - isClickable
     - Demoではこの要素は見つからなかった
 - controller
-    - Demoではこの要素は見つからなかった
+    - Demoではこの要素は見つからなかった（一度だけ、その後発見）
+    - `String`,`url`というプロパティが2種類格納されている
+        - おそらくSVGデータの所在を表している
+    - `setController`メソッド内で主に代入されている
+        - `setController`について
+            - `svgImageProps`の`controller`プロパティを代入している
+                -  `svgDoc`内の`data-controller`attrがあればそれを元に、svgImagePropsに代入されている
+                - `docPath`を同時に渡しているのでそちらを参照する場合もある
 - refresh
     - to be obsoluted: 指定時間で、コンテンツをリロードするためのパラメータ
+    - `loadScript`, `start`, `timeout`, `url`, `length`などのプロパティを持つ
+    - `handleScript`メソッド内で扱われている
+        - `timeout`, `loatScript`の条件次第で`onLoad()`が走る
 - styleMap
 - altdMap
     - WeakMapオブジェクトとして作成されている
@@ -59,3 +70,5 @@ class SvgImageProps{
 - geoViewBox
     - [height, width, x, y]などのカラムがある
     - スクロールすると値が変わる
+    - `getLayaerStatus`, `parseSVG`,`handleScript`メソッド内でいろんな値として代入されている
+
