@@ -13,6 +13,7 @@ class SvgImageProps{
     scale: 
     childImages:
     rootLayer:
+    geoViewBox
 }
 ```
 
@@ -55,3 +56,6 @@ class SvgImageProps{
     - このsvgコンテンツから参照された子svgコンテンツの、layerId
 - rootLayer
     - 親を辿って行った時のroot直前のlayerIDなのかな？？
+- geoViewBox
+    - [height, width, x, y]などのカラムがある
+    - スクロールすると値が変わる
